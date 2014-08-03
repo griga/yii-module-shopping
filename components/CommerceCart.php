@@ -26,7 +26,7 @@ class CommerceCart extends EShoppingCart
             $out['items'][] = [
                 'id' => $position->id,
                 'name'=>$position->name,
-                'image'=>$position->defaultUpload->filename,
+                'image'=>$position->defaultPicture->filename,
                 'url'=>$position->getUrl(),
                 'alias'=>$position->alias,
                 'quantity' => intval($position->getQuantity()),
