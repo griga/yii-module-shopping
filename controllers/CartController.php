@@ -118,12 +118,12 @@ class CartController extends FrontendController
     {
         $data = $this->inputJson();
         /** @var Product $product */
-        $product = Product::model()->findByPk($data['id']);
-        app()->shoppingCart->remove($product->getId());
-        $message = "Товар $product->name ($product->article) удален из корзины";
+        app()->shoppingCart->remove('Product' . $data['id']);
+        $message = "Товар удален из корзины";
         $this->renderJson([
             'message' => $message,
             'cart' => app()->shoppingCart->frontData
         ]);
+
     }
 }
