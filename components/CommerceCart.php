@@ -15,7 +15,9 @@ class CommerceCart extends EShoppingCart
 
         $out = [
             'itemsCount' => app()->shoppingCart->getItemsCount(),
-            'itemsCountMessage' => ts('{n} position|{n} positions|{n} positions', app()->shoppingCart->getItemsCount()),
+            'itemsCountMessage' => app()->shoppingCart->getItemsCount() == 0
+                    ? ts('Your cart is empty')
+                    : ts('{n} position|{n} positions|{n} positions', app()->shoppingCart->getItemsCount()),
             'currency' => Config::get('site_currency'),
             'cost' => $cost,
             'percentage' => $percentage,
