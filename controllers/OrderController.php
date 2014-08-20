@@ -41,7 +41,6 @@ class OrderController extends Controller
             $order->notify = $_POST['Order']['notify'];
             $order->user_id = user()->id;
             $order->discount = Discount::getPercentageByCost(app()->shoppingCart->getCost());
-            $order->site = SiteVersionSplit::getCurrent();
             $order->sum = app()->shoppingCart->getCost();
             if ($order->save()) {
                 $this->saveOrderItems($order);
