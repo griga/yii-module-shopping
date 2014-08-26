@@ -77,20 +77,6 @@ class CartController extends FrontendController
     }
 
 
-    private function inputJson()
-    {
-        $request_body = file_get_contents('php://input');
-        return CJSON::decode($request_body, true);
-    }
-
-    private function renderJson($data)
-    {
-        header('Cache-Control: no-cache, must-revalidate');
-        header('Content-type: application/json');
-        echo CJavaScript::jsonEncode($data);
-        Yii::app()->end();
-    }
-
     /**
      *
      */
